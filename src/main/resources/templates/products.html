@@ -5,7 +5,25 @@
     <title>Products</title>
 </head>
 <body>
-<h1>PRODUCTS WOOOOOOOOOOOOOOOOOO</h1>
-<p th:text="${message}"></p>
+    <div>
+        <h1>Products List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${productsList}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.description}"></td>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

@@ -1,13 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>testing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Marketplace</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
-<h1>bing bong o_O</h1>
+    <!-- Section 1: Navbar -->
+    <section id="header" class="header">
+        <a th:href="@{/}" class="logo"><i class='bx bx-home' ></i></a>
+
+        <div class="links">
+            <ul id="navbar" class="navbar">
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/products}">Shop</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/contact}">Contact</a></li>
+                <li class="cart"><a th:href="@{/cart}">
+                    <i class='bx bx-cart' ></i></a></li>
+                <li class="login"><a th:href="@{/login}" class="profile">
+                    <i class='bx bx-user' ></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Sections 2-4 -->
+    <main>
+        <!-- Section 2: Welcome -->
+        <section class="welcome" id="welcome">
+            <h2>Welcome!</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis fuga eligendi laboriosam repellat accusantium sint rem, numquam modi recusandae sunt velit enim iste doloremque, rerum mollitia exercitationem! At, sed suscipit.</p>
+        </section>
+        <!-- Section 3: Catalogue -->
+        <section class="catalogue" id="catalogue">
+            <h2>Catalogue</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus officia, cum eveniet optio iste vero recusandae? Assumenda tenetur quidem debitis magnam, necessitatibus fugiat error ratione ipsa! Velit vel eum reprehenderit.</p>
+        </section>
+        <!-- Section 4: Contact -->
+        <section class="contact" id="contact">
+            <h2>Contact me</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem cum provident nisi sequi sapiente non dolore numquam. Voluptas, cum esse nobis nostrum dicta veniam delectus deserunt quis laudantium? Asperiores.</p>
+        </section>
+    </main>
+
+    <!-- Section 5: Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Elvin Jiby</p>
+    </footer>
+
+    <script th:src="@{/scripts/main.js}"></script>
 </body>
 </html>
