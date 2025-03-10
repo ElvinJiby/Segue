@@ -3,7 +3,7 @@ package org.elvinjiby.marketplace.model;
 import jakarta.persistence.*;
 
 @Entity // defines entity in sql
-@Table(name="products") // add to sql table products
+@Table(name="products") // manually set the name of sql table
 public class Product {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY) // primary key

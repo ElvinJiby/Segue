@@ -1,0 +1,91 @@
+/*
+--malachite: #1bd96aff;
+--british-racing-green: #134229ff;
+--azure-web: #ecf9fbff;
+--french-gray: #b0bac5ff;
+--cadet-gray: #96a2b0ff;
+--night: #101816
+--black: #000000ff;
+*/
+
+body {
+    font-family: Archivo Narrow, arial;
+    margin: 0;
+    background-color: #000000ff;
+}
+
+h2 {
+    font-family: Bebas Neue;
+    font-size: 50px;
+    text-align: center;
+    color: #ecf9fbff;
+}
+
+p {
+    font-family: Archivo Narrow;
+    font-size: 20px;
+    color: #ecf9fbff;
+}
+
+
+/* Section 1: Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    left: 0;
+    top: 0;
+    padding: 5px 80px;
+    background-color: #101816;
+    box-shadow: 0 5px 15px rgba(8, 255, 193, 0.25);
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar li {
+    list-style: none;
+    padding: 0 20px;
+}
+.navbar a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #b0bac5;
+}
+.header i {
+    font-size: 30px;
+    color: #000000ff;
+    background-color: #1bd96aff;
+    padding: 10px 10px;
+    border-radius: 40%;
+}
+/* .header .profile i {
+    font-size: 40px;
+}  */
+
+.navbar a:hover {
+    color: #ecf9fbff;
+}
+.header i:hover {
+    color: #ecf9fbff;
+}
+
+
+
+
+
+
+
+.footer {
+    /* position: s; */
+    left: 0;
+    bottom: 0;
+    padding: 20px 80px;
+    height: 40px;
+    background-color: #101816;
+    color: #ecf9fbff;
+    justify-items: center;
+}

@@ -1,0 +1,81 @@
+/*
+--malachite: #1bd96aff;
+--british-racing-green: #134229ff;
+--azure-web: #ecf9fbff;
+--french-gray: #b0bac5ff;
+--cadet-gray: #96a2b0ff;
+--night: #101816
+--black: #000000ff;
+*/
+
+body {
+    font-family: Archivo Narrow, arial;
+    background: #134229ff url("../images/login-bg.png") center;
+    background-size: cover;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: Bebas Neue;
+    font-size: 50px;
+    text-align: center;
+    color: #ecf9fbff;
+}
+
+p {
+    font-family: Archivo Narrow;
+    font-size: 20px;
+    color: #ecf9fbff;
+}
+
+.error p {
+    color: aqua;
+    font-size: 20px;
+}
+
+.login-form {
+    width: 400px;
+    padding: 40px;
+    background-color: #101816;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(8, 255, 193, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.register-form {
+    width: 400px;
+    padding: 40px;
+    background-color: #101816;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(8, 255, 193, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+i {
+    color: #000000ff;
+    background-color: #1bd96aff;
+    padding: 5px 5px;
+    border-radius: 20%;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    color: #b0bac5;
+}
+
+a:hover {
+    color: #ecf9fbff;
+}
