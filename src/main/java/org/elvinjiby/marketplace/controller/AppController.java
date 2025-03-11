@@ -21,6 +21,21 @@ public class AppController {
         return "index";
     }
 
+    @GetMapping("/about")
+    public String aboutPage() {
+        return "about";
+    }
+
+    @GetMapping("/contact")
+    public String contactPage() {
+        return "contact";
+    }
+
+    @GetMapping("/cart")
+    public String cartPage() {
+        return "cart";
+    }
+
     @GetMapping("/login")
     public String loginPage() {
         return "login";
@@ -46,9 +61,7 @@ public class AppController {
         user.setRole(UserRole.CUSTOMER);
         userRepo.save(user);
 
-        // Message to indicate successful registration
-        model.addAttribute("successMessage", "Registration Successful!");
-        model.addAttribute("user", new User());
+        model.addAttribute("errorMessage", "Registration successful. You may log in.");
 
         return "register";
     }

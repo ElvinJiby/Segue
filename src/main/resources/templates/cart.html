@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Cart</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -156,42 +156,32 @@
     </style>
 </head>
 <body>
-    <!-- Section 1: Header -->
-    <section id="header" class="header">
-        <nav>
-            <a th:href="@{#}"><img src="/images/logo.png" class="logo"></a>
-            <ul>
-                <li><a th:href="@{/index}">Home</a></li>
-                <li><a th:href="@{/products}">Shop</a></li>
-                <li><a th:href="@{/about}">About</a></li>
-                <li><a th:href="@{/contact}">Contact</a></li>
-            </ul>
-            <a th:href="@{/cart}" class="cart"><i class='bx bx-cart' ></i></a>
-            <form th:action="@{/logout}" method="post">
-                <button type="submit" class="logout"><i class='bx bx-log-out'></i></button>
-            </form>
-        </nav>
-    </section>
+<!-- Section 1: Header -->
+<section id="header" class="header">
+    <nav>
+        <a th:href="@{#}"><img src="/images/logo.png" class="logo"></a>
+        <ul>
+            <li><a th:href="@{/index}">Home</a></li>
+            <li><a th:href="@{/products}">Shop</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/contact}">Contact</a></li>
+        </ul>
+        <a th:href="@{/cart}" class="cart"><i class='bx bx-cart' ></i></a>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="logout"><i class='bx bx-log-out'></i></button>
+        </form>
+    </nav>
+</section>
 
-    <div>
-        <h1>Products List</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="product : ${productsList}">
-                    <td th:text="${product.id}"></td>
-                    <td th:text="${product.name}"></td>
-                    <td th:text="${product.price}"></td>
-                    <td th:text="${product.description}"></td>
-            </tbody>
-        </table>
-    </div>
+<h2>this yo shoppin carz?</h2>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia blanditiis labore fugiat repellendus vero. Maiores, aut corrupti ipsam libero maxime odit facere hic architecto delectus. Minus quos unde aliquid?</p>
+<ul>
+    <li>huzz</li>
+    <li>bruzz</li>
+    <li>lebron</li>
+</ul>
+<footer class="footer">
+    <p>&copy; 2025 Elvin Jiby</p>
+</footer>
 </body>
 </html>
