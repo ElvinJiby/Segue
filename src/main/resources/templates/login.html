@@ -8,115 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        /*
-        --malachite: #1bd96aff;
-        --british-racing-green: #134229ff;
-        --azure-web: #ecf9fbff;
-        --french-gray: #b0bac5ff;
-        --cadet-gray: #96a2b0ff;
-        --night: #101816
-        --black: #000000ff;
-        */
-        
-        /* general */
-        body {
-            font-family: Archivo Narrow, arial;
-            background: url("/images/login-bg.png"), #134229ff;
-            background-position: center;
-            background-size: cover;
-            width: 100%;
-            height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            font-family: Bebas Neue;
-            font-size: 50px;
-            text-align: center;
-            color: #ecf9fbff;
-        }
-
-        p {
-            font-family: Archivo Narrow;
-            font-size: 20px;
-            color: #ecf9fbff;
-        }
-        a {
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 600;
-            color: #b0bac5;
-        }
-        a:hover {
-            color: #ecf9fbff;
-        }
-
-        /* form */
-        .login-form {
-            width: 400px;
-            padding: 40px;
-            background-color: #101816;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(8, 255, 193, 0.25);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .login-form i {
-            color: #000000ff;
-            background-color: #1bd96aff;
-            padding: 5px 5px;
-            border-radius: 20%;
-        }
-
-        /* popup for successful login */
-        .success-popup {
-            position: absolute;
-            width: 380px;
-            padding: 20px;
-            background-color: #4b976e;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(8, 255, 193, 0.25);
-            opacity: 0;
-        }
-        .popup-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 10px;
-            text-align: center;
-            padding-top: 40px;
-        }
-        .icon {
-            font-size: 50px;
-            color: #1bd96aff;
-            background-color: #ecf9fbff;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-
-        }
-        .icon i {
-            border-radius: 0;
-        }
-        .title {
-            font-family: Bebas Neue;
-            font-size: 30px;
-            font-weight: 600;
-            color: #ecf9fbff;
-        }
-        .msg {
-            font-family: Archivo Narrow;
-            font-size: 20px;
-            color: #ecf9fbff;
-            margin: 10px 0;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
     <form id="login-form" class="login-form" th:action="@{/login}" method="post">
@@ -130,19 +22,19 @@
         </div>
 
         <div class="input-field">
-            <i class='bx bxs-user'></i>     
-            <input type="text" name="username" id="username" placeholder="Username" required>
+            <i class='bx bxs-user'></i>
+            <label for="username"></label><input type="text" name="username" id="username" placeholder="Username" required>
         </div>
 
         <div class="input-field">
             <i class='bx bxs-lock-alt' ></i>
-            <input type="password" name="password" id="password" placeholder="Password" required>
+            <label for="password"></label><input type="password" name="password" id="password" placeholder="Password" required>
         </div>
 
         <input type="submit" id="submit" class="submit" value="Log In">
         <div class="register">
             <p>Don't have an account? 
-                <a th:href="@{/register}"><b>Register</b></a>
+                <a th:href="@{/register}" title="Go to Register Page"><b>Register</b></a>
             </p>
         </div>
     </form>
@@ -152,7 +44,7 @@
             <div class="icon"><i class='bx bx-check' ></i></div>
             <span class="title">Login Success</span>
             <span class="msg">
-                You may now explore my marketplace by <a th:href="@{/index}"><br>clicking here</a>!
+                You may now explore my marketplace by <a th:href="@{/index}" title="Go to Home Page"><br>clicking here</a>!
             </span>
         </div>
     </div>

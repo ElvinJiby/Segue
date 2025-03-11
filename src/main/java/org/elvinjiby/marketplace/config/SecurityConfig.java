@@ -1,6 +1,5 @@
 package org.elvinjiby.marketplace.config;
 
-import org.elvinjiby.marketplace.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,15 +9,18 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-    public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
-    }
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/register", "/process_register","/css/**", "/js/**", "/images/**").permitAll()
-                    .anyRequest().authenticated()
+                    .requestMatchers("/register", "/process_register","/login",
+                            "/css/**", "/js/**", "/images/**").permitAll()   // allow anyone to access
+
+                    .requestMatchers("/customer/**").hasRole("CUSTOMER")   // restrict customer pages
+
+                    .requestMatchers("/admin/**").hasRole("ADMIN")  // restrict admin pages
+
+                    .anyRequest().authenticated()   // all other pages need authentication
             )
             .formLogin(form -> form
                     .loginPage("/login")

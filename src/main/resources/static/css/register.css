@@ -1,4 +1,3 @@
-
 /*
 --malachite: #1bd96aff;
 --british-racing-green: #134229ff;
@@ -41,8 +40,8 @@ html, body {
 
 body {
     font-family: SMW, Minecraftia, Archivo Narrow, arial, sans-serif;
-    background: #134229ff url("../images/bg1.jpg") center;
-    backdrop-filter: blur(5px);
+    background: #134229ff url("../images/bg3.png") center;
+    backdrop-filter: blur(2px);
     background-size: cover;
     width: 100%;
     display: flex;
@@ -78,7 +77,7 @@ a:hover {
 }
 
 /* form */
-.login-form {
+.register-form {
     width: 400px;
     padding: 40px;
     background-color: #101816;
@@ -89,52 +88,9 @@ a:hover {
     align-items: center;
     flex-direction: column;
 }
-.login-form i {
+.register-form i {
     color: #000000ff;
     background-color: #1bd96aff;
     padding: 5px 5px;
     border-radius: 20%;
-}
-
-/* popup for successful login */
-.success-popup {
-    position: absolute;
-    width: 380px;
-    padding: 20px;
-    background-color: #4b976e;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(8, 255, 193, 0.25);
-    opacity: 0;
-}
-.popup-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-    padding-top: 40px;
-}
-.icon {
-    font-size: 50px;
-    color: #1bd96aff;
-    background-color: #ecf9fbff;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-}
-.icon i {
-    border-radius: 0;
-}
-.title {
-    font-family: Pixel NES, Bebas Neue, sans-serif;
-    font-size: 30px;
-    font-weight: 600;
-    color: #ecf9fbff;
-}
-.msg {
-    font-family: SMW, Archivo Narrow, sans-serif;
-    font-size: 20px;
-    color: #ecf9fbff;
-    margin: 10px 0;
 }

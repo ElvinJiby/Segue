@@ -3,185 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+    <title>Your Cart</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        /*
-        --malachite: #1bd96aff;
-        --british-racing-green: #134229ff;
-        --azure-web: #ecf9fbff;
-        --french-gray: #b0bac5ff;
-        --cadet-gray: #96a2b0ff;
-        --night: #101816
-        --black: #000000ff;
-        */
-
-        @font-face {
-            font-family: 'SMW';
-            src: url('/fonts/SMW.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Minecraftia';
-            src: url('/fonts/Minecraftia-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Pixel NES';
-            src: url('/fonts/Pixel_NES.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-
-        body {
-            font-family: SMW, Minecraftia, arial;
-            margin: 0;
-            background-color: #000000ff;
-        }
-
-        h2 {
-            font-family: Pixel NES, Bebas Neue, arial;
-            font-size: 40px;
-            text-align: center;
-            color: #ecf9fbff;
-        }
-
-        p {
-            font-family: SMW, arial;
-            font-size: 20px;
-            color: #ecf9fbff;
-        }
-
-
-        /* Section 1: Header */
-        .header {
-            width: 100%;
-            background-color: #101816;
-            /*background-color:brown;*/
-            box-shadow: 0 5px 15px rgba(8, 255, 193, 0.25);
-            position: sticky;
-            top: 0;
-        }
-        .logo {
-            width: 300px;
-        }
-
-        .header nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            padding: 5px 5%;
-        }
-
-        .header nav ul {
-            width: 100%;
-            text-align: right;
-        }
-
-        .header ul li {
-            display: inline-block;
-            list-style: none;
-            margin: 10px 20px;
-        }
-
-        .header a {
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 600;
-            color: #b0bac5;
-        }
-
-        .header i {
-            font-size: 40px;
-            color: #000000ff;
-            background-color: #1bd96aff;
-            padding: 8px 8px;
-            border-radius: 40%;
-            margin-left: 20px;
-            margin-right: 5px;
-
-        }
-
-        .header a:hover {
-            color: #ecf9fbff;
-        }
-        .header i:hover {
-            color: #ecf9fbff;
-        }
-
-        .logout {
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-
-        /* Section 2: Welcome */
-        .welcome {
-            margin-top: 110px;
-        }
-
-        /* Section 3: Catalogue */
-        .catalogue {
-
-        }
-
-        /* Section 4: Contact */
-        .contact {
-
-        }
-
-        /* Section 5: Footer */
-        .footer {
-            /* position: s; */
-            left: 0;
-            bottom: 0;
-            padding: 20px 80px;
-            height: 40px;
-            background-color: #101816;
-            color: #ecf9fbff;
-            justify-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
-<!-- Section 1: Header -->
-<section id="header" class="header">
-    <nav>
-        <a th:href="@{#}"><img src="/images/logo.png" class="logo"></a>
-        <ul>
-            <li><a th:href="@{/index}">Home</a></li>
-            <li><a th:href="@{/products}">Shop</a></li>
-            <li><a th:href="@{/about}">About</a></li>
-            <li><a th:href="@{/contact}">Contact</a></li>
-        </ul>
-        <a th:href="@{/cart}" class="cart"><i class='bx bx-cart' ></i></a>
-        <form th:action="@{/logout}" method="post">
-            <button type="submit" class="logout"><i class='bx bx-log-out'></i></button>
-        </form>
-    </nav>
-</section>
+    <!-- Section 1: Header -->
+    <section id="header" class="header">
+        <nav>
+            <a th:href="@{#}" title="Scroll to top of page"><img src="/images/logo.png" class="logo" alt="Segue Logo"></a>
+            <ul>
+                <li><a th:href="@{/index}" title="Go to Home Page">Home</a></li>
+                <li><a th:href="@{/products}" title="Go to Products Page">Shop</a></li>
+                <li><a th:href="@{/order}" title="Go to Orders Page">Orders</a></li>
+            </ul>
+            <a th:href="@{/cart}" title="View Cart" aria-label="View Cart"><i class='bx bx-cart' ></i></a>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="logout" title="Log Out" aria-label="Log Out">
+                    <i class='bx bx-log-out'></i>
+                </button>
+            </form>
+        </nav>
+    </section>
 
-<h2>this yo shoppin carz?</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto officia blanditiis labore fugiat repellendus vero. Maiores, aut corrupti ipsam libero maxime odit facere hic architecto delectus. Minus quos unde aliquid?</p>
-<ul>
-    <li>huzz</li>
-    <li>bruzz</li>
-    <li>lebron</li>
-</ul>
-<footer class="footer">
-    <p>&copy; 2025 Elvin Jiby</p>
-</footer>
+    <main>
+        <!-- Section 2: Cart -->
+        <section class="cart">
+            <h2>beeg cart wow</h2>
+            <ul>
+                <li>diddy</li>
+                <li>liddy</li>
+                <li>hiddy</li>
+                <li>griddy</li>
+                <li>lebron</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Section 3: Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Elvin Jiby</p>
+    </footer>
 </body>
 </html>

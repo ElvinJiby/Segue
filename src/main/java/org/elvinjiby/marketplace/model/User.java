@@ -3,10 +3,10 @@ package org.elvinjiby.marketplace.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name="users") // manually set the name of sql table
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // primary key
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -19,6 +19,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
+
+    // Constructors
     public User() {}
     public User(String username, String password, UserRole role) {
         this.username = username;
@@ -26,6 +28,7 @@ public class User {
         this.role = role;
     }
 
+    // Getters & Setters
     public Long getId() { return id; }
     public String getUsername() { return username; }
     public String getPassword() { return password; }
