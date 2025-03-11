@@ -24,7 +24,12 @@ public class SecurityConfig {
             )
             .formLogin(form -> form
                     .loginPage("/login")
-                    .defaultSuccessUrl("/login?loginSuccess=true", true)
+                    .successHandler((request, response, authentication) -> {
+                        String role = authentication.getAuthorities().iterator().next().getAuthority();
+                        String path = (role.equals("ROLE_ADMIN")) ? "/admin/home" : "/customer/home";
+                        response.sendRedirect(path);
+                    })
+//                    .defaultSuccessUrl("/login?loginSuccess=true", true)
                     .permitAll()
             )
             .logout(LogoutConfigurer::permitAll);

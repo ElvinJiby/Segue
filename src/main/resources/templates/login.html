@@ -18,7 +18,7 @@
             <p th:text="${param.message != null ? param.message : 'Invalid username or password'}"></p>
         </div>
         <div th:if="${param.logout}" class="error">
-            You have been logged out.
+            <p>You have been logged out.</p>
         </div>
 
         <div class="input-field">
@@ -38,16 +38,6 @@
             </p>
         </div>
     </form>
-
-    <div id="success-popup" class="success-popup" th:if="${param.loginSuccess}">
-        <div class="popup-content">
-            <div class="icon"><i class='bx bx-check' ></i></div>
-            <span class="title">Login Success</span>
-            <span class="msg">
-                You may now explore my marketplace by <a th:href="@{/index}" title="Go to Home Page"><br>clicking here</a>!
-            </span>
-        </div>
-    </div>
 
     <script src="/scripts/auth.js"></script>
 </body>
