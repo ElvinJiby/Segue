@@ -33,13 +33,42 @@
         <!-- Section 2: Cart -->
         <section class="cart">
             <h2>beeg cart wow</h2>
-            <ul>
-                <li>diddy</li>
-                <li>liddy</li>
-                <li>hiddy</li>
-                <li>griddy</li>
-                <li>lebron</li>
-            </ul>
+            <table>
+                <tr>
+                    <th>Cover</th>
+                    <th>Name</th>
+                    <th>Artist</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+                <tr th:each="cartItem : ${cartItems}">
+                    <td><img th:src="${cartItem.product.albumCoverURL}" width="50" alt="album cover"></td>
+                    <td th:text="${cartItem.product.name}"></td>
+                    <td th:text="${cartItem.product.artist}"></td>
+                    <td th:text="'$' + ${cartItem.product.price}"></td>
+                    <td>
+                        <form th:action="@{/customer/cart/update/{id}(id=${cartItem.product.id})}" method="post">
+                            <input type="number" name="quantity" th:value="${cartItem.quantity}" min="1">
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                    <td th:text="'$' + ${cartItem.totalPrice}"></td>
+                    <td>
+                        <form th:action="@{/customer/cart/remove/{id}(id=${cartItem.product.id})}" method="post">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>Total: <span th:text="'$' + ${totalPrice}"></span></h3>
+            <form th:action="@{/customer/cart/clear}" method="post">
+                <button type="submit">Clear Cart</button>
+            </form>
+
+            <a th:href="@{/customer/products}" title="Back to Products">Continue Shopping</a>
         </section>
     </main>
 

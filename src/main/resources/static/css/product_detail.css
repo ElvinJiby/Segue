@@ -40,7 +40,7 @@ html, body {
 
 body {
     font-family: SMW, Minecraftia, Archivo Narrow, arial, sans-serif;
-    background: #134229ff url("../images/bg7.jpg") center;
+    background: #134229ff url("../images/bg4.jpg") center;
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -128,19 +128,9 @@ p, li {
     cursor: pointer;
 }
 
-/* Section 2: Welcome */
-.welcome {
-    margin-top: 110px;
-}
-
-/* Section 3: Catalogue */
-.catalogue {
-
-}
-
-/* Section 4: Contact */
-.contact {
-
+.album-details img {
+    width: 100%;
+    height: auto;
 }
 
 /* Section 5: Footer */

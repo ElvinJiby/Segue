@@ -30,35 +30,72 @@
     </section>
 
     <main>
-        <!-- Section 2: Popular Products -->
-        <section class="products">
-            <div class="product-popular]">
-                <h2>Popular Products</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt adipisci magni qui aspernatur, quod autem eius ducimus vitae perspiciatis quia voluptas consectetur omnis rerum ipsa est rem pariatur reiciendis distinctio!</p>
-            </div>
-            <div class="product-list">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="product : ${productsList}">
-                        <td th:text="${product.id}"></td>
-                        <td th:text="${product.name}"></td>
-                        <td th:text="${product.price}"></td>
-                        <td th:text="${product.description}"></td>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Section 2: Add New Product -->
+        <section class="new-product">
+            <h2>Add New Products</h2>
+            <form th:action="@{/admin/products/add}" th:object="${newProduct}" method="post">
+                <div class="input-field">
+                    <label>Name:</label>
+                    <input type="text" th:field="*{name}" placeholder="Enter name of album" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Artist:</label>
+                    <input type="text" th:field="*{artist}" placeholder="Enter artist(s) names" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Price:</label>
+                    <input type="number" th:field="*{price}" placeholder="Enter price (only decimal, no need for symbol)" required>
+                </div>
+
+                <div class="input-field">
+                    <label>Description:</label>
+                    <textarea th:field="*{description}" placeholder="Enter description" required></textarea>
+                </div>
+
+                <div class="input-field">
+                    <label>Album Cover URL:</label>
+                    <input type="text" th:field="*{albumCoverURL}" placeholder="Enter image url">
+                </div>
+
+                <button type="submit">Add Album</button>
+            </form>
+        </section>
+
+        <!-- Section 3: Show all products -->
+        <section class="existing-products">
+            <h2>All Products</h2>
+            <table class="products-table">
+                <tr>
+                    <th>Cover</th>
+                    <th>Name</th>
+                    <th>Artist</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                <tr th:each="product : ${productsList}">
+                    <td>
+                        <img th:src="${product.albumCoverURL}" alt="Album Cover" width="50">
+                    </td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.artist}"></td>
+                    <td th:text="'$' + ${product.price}"></td>
+                    <td th:text="${product.description}"></td>
+                    <td>
+                        <a th:href="@{/admin/products/edit/{id}(id=${product.id})}">Edit</a>
+
+                        <form th:action="@{/admin/products/toggle-visibility/{id}(id=${product.id})}" method="post" style="display:inline;">
+                            <button type="submit" th:text="${product.hidden} ? 'Unhide' : 'Hide'"></button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
         </section>
     </main>
 
-    <!-- Section 3: Footer -->
+    <!-- Section 4: Footer -->
     <footer class="footer">
         <p>&copy; 2025 Elvin Jiby</p>
     </footer>
