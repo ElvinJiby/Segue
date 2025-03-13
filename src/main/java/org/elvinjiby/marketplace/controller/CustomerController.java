@@ -1,8 +1,12 @@
 package org.elvinjiby.marketplace.controller;
 
 import org.elvinjiby.marketplace.model.Product;
+import org.elvinjiby.marketplace.model.User;
+import org.elvinjiby.marketplace.repository.UserRepository;
 import org.elvinjiby.marketplace.service.CartService;
+import org.elvinjiby.marketplace.service.OrderService;
 import org.elvinjiby.marketplace.service.ProductService;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +20,14 @@ import java.util.List;
 public class CustomerController {
     private final ProductService productService;
     private final CartService cartService;
+    private final OrderService orderService;
+    private final UserRepository userRepo;
 
-    public CustomerController(ProductService productService, CartService cartService) {
+    public CustomerController(ProductService productService, CartService cartService, OrderService orderService, UserRepository userRepo) {
         this.productService = productService;
         this.cartService = cartService;
+        this.orderService = orderService;
+        this.userRepo = userRepo;
     }
 
     @GetMapping("/customer/home")
@@ -47,8 +55,21 @@ public class CustomerController {
 
     // Orders page
     @GetMapping("/customer/orders")
-    public String ordersPage() {
+    public String customerOrders(Model model, Authentication auth) {
+        User customer = userRepo.findByUsername(auth.getName());
+        if (customer != null) {
+            model.addAttribute("orders", orderService.findOrdersByCustomer(customer));
+        }
         return "customer-orders";
+    }
+
+    @PostMapping("/customer/order")
+    public String placeOrder(Authentication auth) {
+        User customer = userRepo.findByUsername(auth.getName());
+        if (customer != null) {
+            orderService.placeOrder(customer);
+        }
+        return "redirect:/customer/orders";
     }
 
     // Cart page
@@ -62,7 +83,7 @@ public class CustomerController {
     @PostMapping("/customer/cart/add/{id}")
     public String addToCart(@PathVariable Long id) {
         Product product = productService.getProductById(id);
-        if (product != null || !product.isHidden()) {
+        if (product != null && !product.isHidden()) {
             cartService.addToCart(product);
         }
         return "redirect:/customer/cart";
@@ -87,4 +108,12 @@ public class CustomerController {
         return "redirect:/customer/cart";
     }
 
+    @PostMapping("/customer/checkout")
+    public String checkout(Authentication auth) {
+        User customer = userRepo.findByUsername(auth.getName());
+        if (customer != null) {
+            orderService.placeOrder(customer);
+        }
+        return "redirect:/customer/cart";
+    }
 }

@@ -43,7 +43,7 @@ public class CartService {
     }
 
     public double getTotalCartPrice() {
-        return cart.values().stream().mapToDouble(CartItem::getTotalPrice).sum();
+        return cart.values().stream().mapToDouble(CartItem :: getTotalPrice).sum();
     }
 
 }

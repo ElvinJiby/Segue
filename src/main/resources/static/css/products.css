@@ -57,15 +57,21 @@ h2 {
     color: #ecf9fbff;
 }
 
-p, li {
-    font-family: SMW, Archivo Narrow, arial, sans-serif;
+p {
     font-size: 20px;
+}
+
+li, td, th, label, p {
+    font-family: SMW, Archivo Narrow, arial, sans-serif;
     color: #ecf9fbff;
     list-style-type: square;
 }
 
+.album-card a, .existing-products a {
+    text-decoration: none;
+    color: #ecf9fbff;
+}
 
-/* Section 1: Header */
 .header {
     width: 100%;
     background-color: #101816;
@@ -140,11 +146,96 @@ p, li {
 }
 
 .album-card img {
-    width: 100%;
+    width: 200px;
     height: auto;
 }
 
-/* Section 5: Footer */
+.album-grid a {
+    color: #96a2b0ff;
+    text-decoration: none;
+}
+
+.album-grid a:hover {
+    color: #ecf9fbff;
+    text-decoration: underline;
+}
+
+.section-box {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ecf9fbff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-product form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.new-product .input-field {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-product label {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #ecf9fbff;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.products-table th,
+.products-table td {
+    padding: 12px 15px;
+    border: 1px solid #96a2b0ff;
+    text-align: center;
+}
+
+.products-table th {
+    background-color: #134229ff;
+    color: #ecf9fbff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.products-table img {
+    border-radius: 4px;
+}
+
+.products-table a, .edit-products a {
+    color: #96a2b0ff;
+    text-decoration: none;
+}
+.products-table a:hover, .edit-products a:hover {
+    color: #ecf9fbff;
+    text-decoration: underline;
+}
+
+.edit-products form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px;
+    gap: 15px;
+}
+
 .footer {
     padding: 20px 80px;
     height: 40px;

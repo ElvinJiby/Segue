@@ -31,8 +31,11 @@
 
     <main>
         <!-- Section 2: Cart -->
-        <section class="cart">
-            <h2>beeg cart wow</h2>
+        <section class="cart section-box">
+            <h2>Your Cart</h2>
+            <div th:if="${param.error}" class="error">
+                <p th:text="${param.message}"></p>
+            </div>
             <table>
                 <tr>
                     <th>Cover</th>
@@ -47,14 +50,14 @@
                     <td><img th:src="${cartItem.product.albumCoverURL}" width="50" alt="album cover"></td>
                     <td th:text="${cartItem.product.name}"></td>
                     <td th:text="${cartItem.product.artist}"></td>
-                    <td th:text="'$' + ${cartItem.product.price}"></td>
+                    <td th:text="'€' + ${cartItem.product.price}"></td>
                     <td>
                         <form th:action="@{/customer/cart/update/{id}(id=${cartItem.product.id})}" method="post">
-                            <input type="number" name="quantity" th:value="${cartItem.quantity}" min="1">
+                            <label><input type="number" name="quantity" th:value="${cartItem.quantity}" min="1"></label>
                             <button type="submit">Update</button>
                         </form>
                     </td>
-                    <td th:text="'$' + ${cartItem.totalPrice}"></td>
+                    <td th:text="'€ ' + ${cartItem.totalPrice}"></td>
                     <td>
                         <form th:action="@{/customer/cart/remove/{id}(id=${cartItem.product.id})}" method="post">
                             <button type="submit">Remove</button>
@@ -63,7 +66,11 @@
                 </tr>
             </table>
 
-            <h3>Total: <span th:text="'$' + ${totalPrice}"></span></h3>
+            <p>Total: <span th:text="'€ ' + ${totalPrice}"></span></p>
+            <form th:action="@{/customer/checkout}" method="post">
+                <button type="submit">Purchase</button>
+            </form>
+
             <form th:action="@{/customer/cart/clear}" method="post">
                 <button type="submit">Clear Cart</button>
             </form>

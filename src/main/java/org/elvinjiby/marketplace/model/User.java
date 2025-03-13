@@ -10,10 +10,10 @@ public class User {
     private Long id;
 
     @Column(nullable = false, unique = true)
-    private String username;
+    private String username = "";
 
     @Column(nullable = false)
-    private String password;
+    private String password = "";
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

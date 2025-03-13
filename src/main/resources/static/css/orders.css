@@ -57,9 +57,12 @@ h2 {
     color: #ecf9fbff;
 }
 
-p, li {
-    font-family: SMW, Archivo Narrow, arial, sans-serif;
+p{
     font-size: 20px;
+}
+
+li, td, th, p {
+    font-family: SMW, Archivo Narrow, arial, sans-serif;
     color: #ecf9fbff;
     list-style-type: square;
 }
@@ -69,7 +72,6 @@ p, li {
 .header {
     width: 100%;
     background-color: #101816;
-    /*background-color:brown;*/
     box-shadow: 0 5px 15px rgba(8, 255, 193, 0.25);
     position: sticky;
     top: 0;
@@ -128,22 +130,48 @@ p, li {
     cursor: pointer;
 }
 
-/* Section 2: Welcome */
-.welcome {
-    margin-top: 110px;
+.section-box {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ecf9fbff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Section 3: Catalogue */
-.catalogue {
-
+.orders table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-/* Section 4: Contact */
-.contact {
-
+.orders th,
+.orders td {
+    padding: 12px 15px;
+    border: 1px solid #96a2b0ff;
+    text-align: center;
 }
 
-/* Section 5: Footer */
+.orders th {
+    background-color: #134229ff;
+    color: #ecf9fbff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.orders a {
+    color: #96a2b0ff;
+    text-decoration: none;
+}
+
+.orders a:hover {
+    color: #ecf9fbff;
+    text-decoration: underline;
+}
+
 .footer {
     padding: 20px 80px;
     height: 40px;

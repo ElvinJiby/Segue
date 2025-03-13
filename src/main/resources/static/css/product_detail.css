@@ -57,13 +57,15 @@ h2 {
     color: #ecf9fbff;
 }
 
-p, li {
-    font-family: SMW, Archivo Narrow, arial, sans-serif;
+p {
     font-size: 20px;
+}
+
+li, td, th, label, p {
+    font-family: SMW, Archivo Narrow, arial, sans-serif;
     color: #ecf9fbff;
     list-style-type: square;
 }
-
 
 /* Section 1: Header */
 .header {
@@ -130,10 +132,42 @@ p, li {
 
 .album-details img {
     width: 100%;
+    max-width: 400px;
     height: auto;
+    display: block;
+    border-radius: 10px ;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
-/* Section 5: Footer */
+.section-box {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ecf9fbff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.album-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.album-details a {
+    color: #96a2b0ff;
+    text-decoration: none;
+}
+
+.album-details a:hover {
+    color: #ecf9fbff;
+    text-decoration: underline;
+}
+
 .footer {
     padding: 20px 80px;
     height: 40px;

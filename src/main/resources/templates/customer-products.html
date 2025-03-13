@@ -30,10 +30,8 @@
     </section>
 
     <main>
-        <!-- Section 2: Top 5 Albums -->
-
-        <!-- Section 3: All Albums -->
-        <section class="products">
+        <!-- Section 2: All Albums -->
+        <section class="products section-box">
             <h2>Video Game Music Albums</h2>
 
             <div class="album-grid">
@@ -42,9 +40,9 @@
                         <img th:src="${product.albumCoverURL}" alt="Album Cover">
                     </a>
 
-                    <h3 th:text="${product.name}"></h3>
+                    <p th:text="${product.name}"></p>
                     <p th:text="${product.artist}"></p>
-                    <p th:text="'$' + ${product.price}"></p>
+                    <p th:text="'€ ' + ${product.price}"></p>
                     <a th:href="@{/customer/products/{id}(id=${product.id})}">View Details</a>
                 </div>
             </div>

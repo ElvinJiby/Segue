@@ -48,6 +48,7 @@ body {
 
 main {
     flex: 1;
+    padding: 0 20px;
 }
 
 h2 {
@@ -128,22 +129,44 @@ p, li {
     cursor: pointer;
 }
 
-/* Section 2: Welcome */
 .welcome {
     margin-top: 110px;
+    text-align: center;
 }
 
-/* Section 3: Catalogue */
-.catalogue {
-
+.section-box {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid #ecf9fbff;
+    border-radius: 8px;
 }
 
-/* Section 4: Contact */
-.contact {
-
+.users table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Section 5: Footer */
+.users table th,
+.users table td {
+    border: 1px solid #96a2b0ff;
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.users table th {
+    background-color: #134229ff;
+    color: #ecf9fbff;
+    font-size: 22px;
+}
+
+.users table tr {
+    background-color: #ecf9fbff;
+}
+
 .footer {
     padding: 20px 80px;
     height: 40px;

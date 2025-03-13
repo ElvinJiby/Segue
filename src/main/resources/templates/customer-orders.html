@@ -30,16 +30,33 @@
     </section>
 
     <main>
-        <!-- Section 2: Cart -->
-        <section class="cart">
-            <h2>beeg cart wow</h2>
-            <ul>
-              <li>diddy</li>
-              <li>liddy</li>
-              <li>hiddy</li>
-              <li>griddy</li>
-              <li>lebron</li>
-            </ul>
+        <!-- Section 2: Orders -->
+        <section class="orders section-box">
+            <h2>My Orders</h2>
+            <table>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Items</th>
+                    <th>Total Price</th>
+                </tr>
+                <tr th:each="order : ${orders}">
+                    <td th:text="${order.id}"></td>
+                    <td th:text="${order.orderDate}"></td>
+                    <td th:text="${order.status}"></td>
+                    <td>
+                        <ul>
+                            <li th:each="item : ${order.items}">
+                                <span th:text="${item.productName} + ' | '"></span>
+                                <span th:text="'Amnt: ' + ${item.quantity} + ' | '"></span>
+                                <span th:text="'€ ' + ${item.priceAtPurchase}"></span>
+                            </li>
+                        </ul>
+                    </td>
+                    <td th:text="'€ ' + ${order.totalPrice}"></td>
+                </tr>
+            </table>
         </section>
     </main>
 
